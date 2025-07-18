@@ -7,9 +7,9 @@ const App = () => {
   document.documentElement.lang = 'en';
   return (
     <div className="page-content-container">
-      <h1>Contoso Outdoors GenAI Chat:</h1>
+      <h1>Wildlife Tours-Rwanda Chat. ✨</h1>
       <div className="chat-disclaimer">
-        Disclaimer: This chat application uses AI to generate responses. Please verify the information provided.
+        This chat uses AI to assist with Wildlife Tours Rwanda inquiries. Please confirm all details with our team before booking. 🦍
       </div>
       <Chat/>
     </div>

@@ -7,7 +7,7 @@ const Chat = () => {
     const [messages, setMessages] = useState([]);
     const [isTyping, setIsTyping] = useState(false);
     const messageEndRef = useRef(null);
-    const welcomeMessage = 'Ask a question...';
+    const welcomeMessage = 'Hi there! Ask me anything about wildlife in Rwanda.'; // Customized welcome message
 
     const scrollToBottom = () => {
         messageEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -43,7 +43,7 @@ const Chat = () => {
             );
 
             if (!response.ok) {
-                throw new Error("Oops! Bad chat response.");
+                throw new Error("Oops! Something went wrong while chatting."); // More user-friendly error
             }
 
             const systemResponse = await response.json();
@@ -75,16 +75,16 @@ const Chat = () => {
     return (
         <div className="chat-container">
             <div className="chat-messages">
-                {messages.length == 0 && (<div className="message.content">{welcomeMessage}</div>)}
+                {messages.length == 0 && (<div className="message-content welcome-message">{welcomeMessage}</div>)}
                 {messages.map((message, index) => (
-                    <div key={index} tabindex="0" className={message.role === 'user' ? "message.user" : "message.agent"}>
+                    <div key={index} tabIndex="0" className={message.role === 'User' ? "message-user" : "message-agent"}>
                         <div className="message">
-                            <h3 className="message-header">{message.role}</h3>
-                            <Markdown className="message.content">{message.content}</Markdown>
+                            <h3 className="message-header">{message.role === 'User' ? 'You' : 'Wildlife Rwanda Bot'}</h3> {/* Custom role titles */}
+                            <Markdown className="message-content">{message.content}</Markdown>
                         </div>
                     </div>
                 ))}
-                {isTyping && <p className="message">System is typing...</p>}
+                {isTyping && <p className="message message-typing">The bot is thinking...</p>} {/* Friendlier typing message */}
                 <div ref={messageEndRef}/>
             </div>
             <form
@@ -103,7 +103,7 @@ const Chat = () => {
                     className="chat-input"
                     type="text"
                     name="input"
-                    placeholder="Type your message..."
+                    placeholder="Ask about wildlife, national parks, or travel tips..." // Custom placeholder
                     disabled={isTyping}/>
                 <button
                     className="chat-submit-button" 

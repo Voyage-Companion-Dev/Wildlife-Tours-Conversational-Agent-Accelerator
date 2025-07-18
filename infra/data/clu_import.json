@@ -4,254 +4,429 @@
     "metadata": {
         "projectKind": "Conversation",
         "settings": {},
-        "projectName": "contoso-outdoors-clu",
+        "projectName": "wildlife-tours-clu",
         "multilingual": false,
         "language": "en-us",
-        "description": ""
+        "description": "CLU project for wildlife tour intake"
     },
     "assets": {
         "projectKind": "Conversation",
         "intents": [
             {
-                "category": "None"
+                "category": "NewTripRequest"
             },
             {
-                "category": "OrderStatus"
+                "category": "ModifyTripDetails"
             },
             {
-                "category": "RefundStatus"
+                "category": "BookingStatus"
             },
             {
-                "category": "CancelOrder"
+                "category": "CancelTrip"
+            },
+            {
+                "category": "TourActivitiesInquiry"
+            },
+            {
+                "category": "AccommodationInquiry"
+            },
+            {
+                "category": "TravelAdvice"
+            },
+            {
+                "category": "ContactHumanAgent"
             }
         ],
         "entities": [
             {
-                "category": "OrderId",
-                "compositionSetting": "combineComponents",
-                "prebuilts": [
-                    {
-                        "category": "Quantity.Number"
-                    }
-                ]
+                "category": "Destination"
+            },
+            {
+                "category": "TravelDate"
+            },
+            {
+                "category": "Budget"
+            },
+            {
+                "category": "TravelPurpose"
+            },
+            {
+                "category": "Activities"
+            },
+            {
+                "category": "Duration"
+            },
+            {
+                "category": "Accommodation"
+            },
+            {
+                "category": "GroupSize"
             }
         ],
         "utterances": [
             {
-                "text": "place order for water bottle",
+                "text": "I want a romantic holiday in Akagera, August 10 to 13, budget $1200",
                 "language": "en-us",
-                "intent": "None",
+                "intent": "NewTripRequest",
+                "entities": [
+                    { "category": "TravelPurpose", "offset": 9, "length": 16 },
+                    { "category": "Destination", "offset": 29, "length": 7 },
+                    { "category": "TravelDate", "offset": 38, "length": 15 },
+                    { "category": "Budget", "offset": 62, "length": 5 }
+                ]
+            },
+            {
+                "text": "Plan an explorer trip to Nyungwe for chimp trekking, Oct 5–7",
+                "language": "en-us",
+                "intent": "NewTripRequest",
+                "entities": [
+                    { "category": "TravelPurpose", "offset": 8, "length": 8 },
+                    { "category": "Destination", "offset": 25, "length": 7 },
+                    { "category": "Activities", "offset": 38, "length": 14 },
+                    { "category": "TravelDate", "offset": 54, "length": 7 }
+                ]
+            },
+            {
+                "text": "Looking for a scientific research tour in Volcanoes NP from Sept 12 to 15",
+                "language": "en-us",
+                "intent": "NewTripRequest",
+                "entities": [
+                    { "category": "TravelPurpose", "offset": 14, "length": 21 },
+                    { "category": "Destination", "offset": 43, "length": 13 },
+                    { "category": "TravelDate", "offset": 62, "length": 13 }
+                ]
+            },
+            {
+                "text": "Can you arrange a mid-range gorilla tour in Volcanoes for two people, Oct 10–13?",
+                "language": "en-us",
+                "intent": "NewTripRequest",
+                "entities": [
+                    { "category": "Activities", "offset": 28, "length": 12 },
+                    { "category": "Destination", "offset": 45, "length": 9 },
+                    { "category": "GroupSize", "offset": 59, "length": 10 },
+                    { "category": "TravelDate", "offset": 71, "length": 9 }
+                ]
+            },
+            {
+                "text": "I'd like a luxury bird-watching trip to Akagera around November 1st",
+                "language": "en-us",
+                "intent": "NewTripRequest",
+                "entities": [
+                    { "category": "TravelPurpose", "offset": 11, "length": 6 },
+                    { "category": "Activities", "offset": 18, "length": 13 },
+                    { "category": "Destination", "offset": 41, "length": 7 },
+                    { "category": "TravelDate", "offset": 56, "length": 12 }
+                ]
+            },
+            {
+                "text": "I'd like to plan a wildlife tour to Akagera National Park",
+                "language": "en-us",
+                "intent": "NewTripRequest",
+                "entities": [
+                    { "category": "Activities", "offset": 19, "length": 12 },
+                    { "category": "Destination", "offset": 37, "length": 21 }
+                ]
+            },
+            {
+                "text": "Can you help me book a safari in Nyungwe Forest?",
+                "language": "en-us",
+                "intent": "NewTripRequest",
+                "entities": [
+                    { "category": "Activities", "offset": 23, "length": 6 },
+                    { "category": "Destination", "offset": 33, "length": 15 }
+                ]
+            },
+            {
+                "text": "I want to go on a gorilla trekking adventure next month",
+                "language": "en-us",
+                "intent": "NewTripRequest",
+                "entities": [
+                    { "category": "Activities", "offset": 18, "length": 15 },
+                    { "category": "TravelDate", "offset": 45, "length": 10 }
+                ]
+            },
+            {
+                "text": "Plan a 3-day trip to Volcanoes National Park for me",
+                "language": "en-us",
+                "intent": "NewTripRequest",
+                "entities": [
+                    { "category": "Duration", "offset": 7, "length": 5 },
+                    { "category": "Destination", "offset": 21, "length": 23 }
+                ]
+            },
+            {
+                "text": "Looking to explore Rwanda's national parks this September",
+                "language": "en-us",
+                "intent": "NewTripRequest",
+                "entities": [
+                    { "category": "Destination", "offset": 19, "length": 25 },
+                    { "category": "TravelDate", "offset": 50, "length": 14 }
+                ]
+            },
+            {
+                "text": "Change my destination to Akagera",
+                "language": "en-us",
+                "intent": "ModifyTripDetails",
+                "entities": [
+                    { "category": "Destination", "offset": 25, "length": 7 }
+                ]
+            },
+            {
+                "text": "Actually, make it a 4-day trip instead of 3",
+                "language": "en-us",
+                "intent": "ModifyTripDetails",
+                "entities": [
+                    { "category": "Duration", "offset": 20, "length": 5 }
+                ]
+            },
+            {
+                "text": "Add chimpanzee tracking to my itinerary",
+                "language": "en-us",
+                "intent": "ModifyTripDetails",
+                "entities": [
+                    { "category": "Activities", "offset": 4, "length": 19 }
+                ]
+            },
+            {
+                "text": "Update my travel date to next weekend",
+                "language": "en-us",
+                "intent": "ModifyTripDetails",
+                "entities": [
+                    { "category": "TravelDate", "offset": 25, "length": 12 }
+                ]
+            },
+            {
+                "text": "I want a more luxurious lodge this time",
+                "language": "en-us",
+                "intent": "ModifyTripDetails",
+                "entities": [
+                    { "category": "Accommodation", "offset": 18, "length": 15 }
+                ]
+            },
+            {
+                "text": "Has my tour been confirmed?",
+                "language": "en-us",
+                "intent": "BookingStatus",
                 "entities": []
             },
             {
-                "text": "submit repair request for my bike",
+                "text": "Did you book the accommodations yet?",
                 "language": "en-us",
-                "intent": "None",
+                "intent": "BookingStatus",
+                "entities": [
+                    { "category": "Accommodation", "offset": 17, "length": 13 }
+                ]
+            },
+            {
+                "text": "What's the status of my safari trip?",
+                "language": "en-us",
+                "intent": "BookingStatus",
+                "entities": [
+                    { "category": "Activities", "offset": 24, "length": 6 }
+                ]
+            },
+            {
+                "text": "Is my gorilla permit ready?",
+                "language": "en-us",
+                "intent": "BookingStatus",
+                "entities": [
+                    { "category": "Activities", "offset": 6, "length": 7 }
+                ]
+            },
+            {
+                "text": "Have the payments gone through?",
+                "language": "en-us",
+                "intent": "BookingStatus",
                 "entities": []
             },
             {
-                "text": "can my backpack be repaired",
+                "text": "Cancel my upcoming trip",
                 "language": "en-us",
-                "intent": "None",
+                "intent": "CancelTrip",
                 "entities": []
             },
             {
-                "text": "refund order 89765757",
+                "text": "I need to postpone my safari",
                 "language": "en-us",
-                "intent": "None",
+                "intent": "CancelTrip",
                 "entities": [
-                    {
-                        "category": "OrderId",
-                        "offset": 13,
-                        "length": 8
-                    }
+                    { "category": "Activities", "offset": 22, "length": 6 }
                 ]
             },
             {
-                "text": "please place order for tent",
+                "text": "Can I get a refund on my booking?",
                 "language": "en-us",
-                "intent": "None",
+                "intent": "CancelTrip",
                 "entities": []
             },
             {
-                "text": "was i refunded for order 12344444",
+                "text": "I'm no longer able to travel next week",
                 "language": "en-us",
-                "intent": "RefundStatus",
+                "intent": "CancelTrip",
                 "entities": [
-                    {
-                        "category": "OrderId",
-                        "offset": 25,
-                        "length": 8
-                    }
+                    { "category": "TravelDate", "offset": 29, "length": 9 }
                 ]
             },
             {
-                "text": "can i refund order 56784567",
+                "text": "Please remove my itinerary from the system",
                 "language": "en-us",
-                "intent": "RefundStatus",
+                "intent": "CancelTrip",
+                "entities": []
+            },
+            {
+                "text": "What can I do at Akagera National Park?",
+                "language": "en-us",
+                "intent": "TourActivitiesInquiry",
                 "entities": [
-                    {
-                        "category": "OrderId",
-                        "offset": 19,
-                        "length": 8
-                    }
+                    { "category": "Destination", "offset": 17, "length": 21 }
                 ]
             },
             {
-                "text": "when will i be refunded for order 89089034",
+                "text": "Tell me about activities in Nyungwe Forest",
                 "language": "en-us",
-                "intent": "RefundStatus",
+                "intent": "TourActivitiesInquiry",
                 "entities": [
-                    {
-                        "category": "OrderId",
-                        "offset": 34,
-                        "length": 8
-                    }
+                    { "category": "Destination", "offset": 28, "length": 15 }
                 ]
             },
             {
-                "text": "when will i get my refund for 89898989",
+                "text": "Can I go birdwatching in Rwanda?",
                 "language": "en-us",
-                "intent": "RefundStatus",
+                "intent": "TourActivitiesInquiry",
                 "entities": [
-                    {
-                        "category": "OrderId",
-                        "offset": 30,
-                        "length": 8
-                    }
+                    { "category": "Activities", "offset": 9, "length": 13 },
+                    { "category": "Destination", "offset": 26, "length": 6 }
                 ]
             },
             {
-                "text": "did my refund for 12312344 go through",
+                "text": "Do you offer cultural village tours?",
                 "language": "en-us",
-                "intent": "RefundStatus",
+                "intent": "TourActivitiesInquiry",
                 "entities": [
-                    {
-                        "category": "OrderId",
-                        "offset": 18,
-                        "length": 8
-                    }
+                    { "category": "Activities", "offset": 13, "length": 22 }
                 ]
             },
             {
-                "text": "shipping status 09090909",
+                "text": "I want to know what safari options are available",
                 "language": "en-us",
-                "intent": "OrderStatus",
+                "intent": "TourActivitiesInquiry",
                 "entities": [
-                    {
-                        "category": "OrderId",
-                        "offset": 16,
-                        "length": 8
-                    }
+                    { "category": "Activities", "offset": 20, "length": 6 }
                 ]
             },
             {
-                "text": "has order 88889999 shipped",
+                "text": "Where can I stay near Volcanoes National Park?",
                 "language": "en-us",
-                "intent": "OrderStatus",
+                "intent": "AccommodationInquiry",
                 "entities": [
-                    {
-                        "category": "OrderId",
-                        "offset": 10,
-                        "length": 8
-                    }
+                    { "category": "Destination", "offset": 22, "length": 23 }
                 ]
             },
             {
-                "text": "I placed order 44445555 last week, what is its status",
+                "text": "What lodges are available in Akagera?",
                 "language": "en-us",
-                "intent": "OrderStatus",
+                "intent": "AccommodationInquiry",
                 "entities": [
-                    {
-                        "category": "OrderId",
-                        "offset": 15,
-                        "length": 8
-                    }
+                    { "category": "Accommodation", "offset": 5, "length": 6 },
+                    { "category": "Destination", "offset": 29, "length": 7 }
                 ]
             },
             {
-                "text": "did my order 12345555 go through",
+                "text": "Do you offer tented camps or eco-lodges?",
                 "language": "en-us",
-                "intent": "OrderStatus",
+                "intent": "AccommodationInquiry",
                 "entities": [
-                    {
-                        "category": "OrderId",
-                        "offset": 13,
-                        "length": 8
-                    }
+                    { "category": "Accommodation", "offset": 13, "length": 12 },
+                    { "category": "Accommodation", "offset": 29, "length": 10 }
                 ]
             },
             {
-                "text": "what is the status of 11112222",
+                "text": "Show me luxury options for Nyungwe",
                 "language": "en-us",
-                "intent": "OrderStatus",
+                "intent": "AccommodationInquiry",
                 "entities": [
-                    {
-                        "category": "OrderId",
-                        "offset": 22,
-                        "length": 8
-                    }
+                    { "category": "Accommodation", "offset": 8, "length": 6 },
+                    { "category": "Destination", "offset": 27, "length": 7 }
                 ]
             },
             {
-                "text": "Undo 12334444",
+                "text": "Are there family-friendly accommodations near the parks?",
                 "language": "en-us",
-                "intent": "CancelOrder",
+                "intent": "AccommodationInquiry",
                 "entities": [
-                    {
-                        "category": "OrderId",
-                        "offset": 5,
-                        "length": 8
-                    }
+                    { "category": "Accommodation", "offset": 10, "length": 32 }
                 ]
             },
             {
-                "text": "please stop order 55556666",
+                "text": "Is September a good time for safaris?",
                 "language": "en-us",
-                "intent": "CancelOrder",
+                "intent": "TravelAdvice",
                 "entities": [
-                    {
-                        "category": "OrderId",
-                        "offset": 18,
-                        "length": 8
-                    }
+                    { "category": "TravelDate", "offset": 3, "length": 9 },
+                    { "category": "Activities", "offset": 29, "length": 7 }
                 ]
             },
             {
-                "text": "Can you cancel 12345678",
+                "text": "What should I pack for a Rwanda trip?",
                 "language": "en-us",
-                "intent": "CancelOrder",
+                "intent": "TravelAdvice",
                 "entities": [
-                    {
-                        "category": "OrderId",
-                        "offset": 15,
-                        "length": 8
-                    }
+                    { "category": "Destination", "offset": 25, "length": 6 }
                 ]
             },
             {
-                "text": "Cancel 888888",
+                "text": "Any travel tips for wildlife tours?",
                 "language": "en-us",
-                "intent": "CancelOrder",
+                "intent": "TravelAdvice",
                 "entities": [
-                    {
-                        "category": "OrderId",
-                        "offset": 7,
-                        "length": 6
-                    }
+                    { "category": "Activities", "offset": 20, "length": 14 }
                 ]
             },
             {
-                "text": "Please cancel order 27787724",
+                "text": "Do I need a visa to visit Rwanda?",
                 "language": "en-us",
-                "intent": "CancelOrder",
+                "intent": "TravelAdvice",
                 "entities": [
-                    {
-                        "category": "OrderId",
-                        "offset": 20,
-                        "length": 8
-                    }
+                    { "category": "Destination", "offset": 26, "length": 6 }
                 ]
+            },
+            {
+                "text": "Are vaccinations required for gorilla trekking?",
+                "language": "en-us",
+                "intent": "TravelAdvice",
+                "entities": [
+                    { "category": "Activities", "offset": 30, "length": 15 }
+                ]
+            },
+            {
+                "text": "Can I speak to someone directly?",
+                "language": "en-us",
+                "intent": "ContactHumanAgent",
+                "entities": []
+            },
+            {
+                "text": "Let me talk to a travel expert",
+                "language": "en-us",
+                "intent": "ContactHumanAgent",
+                "entities": []
+            },
+            {
+                "text": "I have a complex request",
+                "language": "en-us",
+                "intent": "ContactHumanAgent",
+                "entities": []
+            },
+            {
+                "text": "Connect me with an agent",
+                "language": "en-us",
+                "intent": "ContactHumanAgent",
+                "entities": []
+            },
+            {
+                "text": "I need personalized support",
+                "language": "en-us",
+                "intent": "ContactHumanAgent",
+                "entities": []
             }
         ]
     }
